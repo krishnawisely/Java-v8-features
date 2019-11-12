@@ -7,5 +7,5 @@ LocalDate tommorow= todayDate.plusDays(1);
 System.out.println("Today Date->"+todayDate);
 System.out.println("Yesterday Date->"+yesterDay);
 System.out.println("Tommorow Date->"+tommorow);
-System.out.println("Today is Leap Year->"+todayDate.isLeapYear());
+System.out.println("Is Today Leap Year->"+todayDate.isLeapYear());
 }}
