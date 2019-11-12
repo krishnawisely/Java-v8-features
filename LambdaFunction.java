@@ -1,5 +1,5 @@
 //Lambda function feature
-
+//Used for implement SAM->Single Abstract Method interface
 interface Vechicle{
 void car();
 }
