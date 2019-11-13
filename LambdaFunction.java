@@ -10,6 +10,6 @@ System.out.print("This is car!");
 };
 //Or
 //Vehicle vehicle = () -> System.out.print("This is car!");//Here lambda function
-vehicle .car();
+vehicle.car();
 }
 }
