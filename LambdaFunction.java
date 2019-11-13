@@ -1,13 +1,15 @@
 //Lambda function feature
 //Used for implement SAM->Single Abstract Method interface
-interface Vechicle{
+interface Vehicle{
 void car();
 }
 public class Simple{
 public static void main(String args[]){
-Vechicle vechicle = () -> { //Here lambda function
+Vehicle vehicle = () -> { //Here lambda function
 System.out.print("This is car!");
 };
-vechicle .car();
+//Or
+//Vehicle vehicle = () -> System.out.print("This is car!");//Here lambda function
+vehicle .car();
 }
 }
