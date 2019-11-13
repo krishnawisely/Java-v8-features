@@ -3,7 +3,9 @@ package com.java.features.collection;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 class User {
 	String userName;
@@ -34,8 +36,10 @@ public class CollectionStream {
 
 		User user1 = new User(23, "krishna", getDate("1997-06-05"));
 		User user2 = new User(18, "ajith", getDate("2003-06-05"));
+		User user3 = new User(23, "krishna", getDate("1997-06-05"));
 		userName.add(user1);
 		userName.add(user2);
+		userName.add(user3);
 		return userName;
 	}
 
@@ -52,10 +56,10 @@ public class CollectionStream {
 			.filter(user -> user.age > 20)//Filter user based on age is grater than 20
 			.forEach(user -> System.out.println(user.userName));//Here iterate only username
 		System.out.println("=======STREAM WITH LIST========");
-		List<String> userData = userDetails.stream()
+		Set<String> userData = userDetails.stream()
 		.filter(user -> user.age > 15)//Filter user based on age is grater than 20
 		.map(user -> user.userName)//Here map username
-		.collect(Collectors.toList());//Here collect username and put that into list
+		.collect(Collectors.toSet());//Here collect username and put that into list
 		userData.forEach(
 				(user) -> System.out.println("UserName=>"+user)
 				);
@@ -67,5 +71,10 @@ public class CollectionStream {
 				//Or 
 //				(user) -> System.out.println("User=>"+user)
 		);
+		System.out.println("=======USER DETAILS WITH STREAM MAP========");
+		List<Object> userList = userDetails.stream()
+		.flatMap(user -> Stream.of(user.userName,user.age))
+		.collect(Collectors.toList());
+		userList.forEach((user) -> System.out.println("User=>"+user));
 	}
 }
